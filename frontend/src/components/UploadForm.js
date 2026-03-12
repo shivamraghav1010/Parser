@@ -18,7 +18,7 @@ try {
 
 const res = await axios.post(
 // "http://localhost:5000/match",
-"https://resume-job-matcher-1-5v03.onrender.com/match",
+"https://parser-h9wo.onrender.com/match",
 formData
 );
 

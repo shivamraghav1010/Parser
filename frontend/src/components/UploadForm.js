@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./UploadForm.css";
 
 function UploadForm({ setResult }) {
 
@@ -17,13 +18,11 @@ formData.append("jd", jd);
 try {
 
 const res = await axios.post(
-// "http://localhost:5000/match",
 "https://parser-h9wo.onrender.com/match",
 formData
 );
 
-console.log(res.data);   // IMPORTANT (debug)
-
+console.log(res.data);
 setResult(res.data);
 
 } catch (err) {
@@ -34,13 +33,14 @@ console.error(err);
 
 return (
 
-<div>
+<div className="container">
 
 <form onSubmit={handleSubmit}>
 
 <input
 type="file"
 onChange={(e)=>setFile(e.target.files[0])}
+className="input-field"
 />
 
 <br/><br/>
@@ -50,11 +50,8 @@ placeholder="Paste Job Description"
 value={jd}
 onChange={(e)=>setJd(e.target.value)}
 rows="8"
-cols="50"
 />
-
 <br/><br/>
-
 <button type="submit">
 Match
 </button>
